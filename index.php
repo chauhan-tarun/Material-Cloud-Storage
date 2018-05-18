@@ -10,23 +10,24 @@ $collection->appendChild($collectionClass);
 if ($handle = opendir('files')) {
 
     while (false !== ($entry = readdir($handle))) {
-	if ($entry != "." && $entry != "..") {
+      
+    	if ($entry != "." && $entry != "..") {
 
-	$collectionItem = $dom->createElement('a', $entry);
-	$collectionItemHref = $dom->createAttribute('href');
-	$collectionItemHref->value = 'files/'.$entry;
-	$collectionItem->appendChild($collectionItemHref);
+      	$collectionItem = $dom->createElement('a', $entry);
+      	$collectionItemHref = $dom->createAttribute('href');
+      	$collectionItemHref->value = 'files/'.$entry;
+      	$collectionItem->appendChild($collectionItemHref);
 
-	$collectionItem->appendChild($dom->createAttribute('download'));
+      	$collectionItem->appendChild($dom->createAttribute('download'));
 
-	$collectionItemClass = $dom->createAttribute('class');
-	$collectionItemClass->value = 'collection-item';
+      	$collectionItemClass = $dom->createAttribute('class');
+      	$collectionItemClass->value = 'collection-item';
 
-	$collectionItem->appendChild($collectionItemClass);
+      	$collectionItem->appendChild($collectionItemClass);
 
-	$collection->appendChild($collectionItem);
+      	$collection->appendChild($collectionItem);
 
-        }
+      }
     }
 
     closedir($handle);
@@ -38,6 +39,9 @@ if ($handle = opendir('files')) {
  <!DOCTYPE html>
   <html>
     <head>
+
+      <title>TBG Builds</title>
+
       <!--Import Google Icon Font-->
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <!--Import materialize.css-->
@@ -55,6 +59,12 @@ if ($handle = opendir('files')) {
     <div id="list-container">
         <?php echo $dom->saveHTML();?>
     </div>
+
+  <div class="fixed-action-btn">
+    <a class="btn-floating btn-large red" href="upload.php">
+      <i class="large material-icons">file_upload</i>
+    </a>
+  </div>
 
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>

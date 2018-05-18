@@ -6,3 +6,20 @@
 .title {
     text-align: center;
 }
+
+.upload-btn {
+	width: 100px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: auto;
+	margin-bottom: 10%;
+}
+
+.browse-style {
+	margin: 2%;
+}
