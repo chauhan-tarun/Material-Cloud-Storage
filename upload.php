@@ -1,19 +1,19 @@
-<?php require 'models/FileUploader.php';
+<?php require 'models/FileManager.php';
   
   if($_SERVER['REQUEST_METHOD'] === 'POST'){
 
-    // Upload the apk file using file uploader
-    $res = FileUploader::uploadAPKFile($_FILES["fileToUpload"]);
-    FileUploader::console(json_encode($res));
+    // Upload the apk file using File Manager
+    $res = FileManager::uploadAPKFile($_FILES["fileToUpload"]);
+    FileManager::console(json_encode($res));
 
     // Show response to user
     if($res['status'] == "success"){
         echo $res['data'];
     }else{
 
-        if($res['error']['errorCode'] == FileUploader::$FILE_ALREADY_EXIST){
+        if($res['error']['errorCode'] == FileManager::$FILE_ALREADY_EXIST){
 
-          
+            // todo: add replace(or rename) dialog
 
         }
 
@@ -47,7 +47,7 @@
 
 	<form id="upload-form" action="" method="post" enctype="multipart/form-data">
 	    <h4 class="title">Select apk to upload:</h4>
-	    <input type="file" accept=".apk" name="fileToUpload" id="fileToUpload" class="browse-style">
+	    <input type="file" name="fileToUpload" id="fileToUpload" class="browse-style">
 	    <a onclick="document.getElementById('upload-form').submit();" class="waves-effect waves-light btn upload-btn">Upload</a>
 	</form>
 
