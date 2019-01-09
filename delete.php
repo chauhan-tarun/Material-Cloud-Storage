@@ -69,7 +69,7 @@ if ($handle = opendir('files')) {
     </head>
 
     <body>
-    <h4 class="title">Tap to Delete TBG APK Builds</h4>
+    <h4 class="title">Tap to Delete APK Builds</h4>
 
     <div id="list-container">
         <?php 

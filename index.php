@@ -60,11 +60,26 @@ if ($handle = opendir('files')) {
         <?php echo $dom->saveHTML();?>
     </div>
 
-  <div class="fixed-action-btn">
-    <a class="btn-floating btn-large red" href="upload.php">
-      <i class="large material-icons">file_upload</i>
-    </a>
-  </div>
+
+    <!-- Floating Button -->
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">add</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating red" href="upload.php"><i class="material-icons">file_upload</i></a></li>
+        <li><a class="btn-floating red" href="delete.php"><i class="material-icons">delete</i></a></li>
+      </ul>
+    </div>
+
+
+    <!-- JavaScript to handle the floating button actions -->
+    <script type="text/javascript">
+      document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.fixed-action-btn');
+        var instances = M.FloatingActionButton.init(elems, {direction: 'top'});
+      });
+    </script>
 
     <!--JavaScript at end of body for optimized loading-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
