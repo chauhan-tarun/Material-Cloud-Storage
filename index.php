@@ -54,7 +54,7 @@ if ($handle = opendir('files')) {
     </head>
 
     <body>
-    <h4 class="title">TBG APK Builds</h4>
+    <h4 class="title">APK Builds</h4>
 
     <div id="list-container">
         <?php echo $dom->saveHTML();?>

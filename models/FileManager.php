@@ -34,7 +34,11 @@ class FileManager
 		FileManager::console('replace : '.$fileName);
 
 		// Replace all special chars with underscore excluding file extension
-		$target_file = $target_dir . preg_replace("/[^a-zA-Z0-9_]/", '_', $fileName) . '.' . $fileType;
+		//$target_file = preg_replace("/[^a-zA-Z0-9_]/", '_', $fileName) . '.' . $fileType;
+
+		// make full path of file
+		$target_file = $target_dir . $target_file;
+
 		FileManager::console($target_file);
 
 		// Check if file is apk or not
